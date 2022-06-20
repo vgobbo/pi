@@ -1,0 +1,9 @@
+[package]
+name = "pi-bench"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+argparse = { version = "0.2" }
+num_cpus = { version = "1.13" }
+rand = { version = "0.8" }
