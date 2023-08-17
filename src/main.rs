@@ -9,7 +9,7 @@ struct Args {
     #[arg(short, long, default_value_t = num_cpus::get())]
     pub threads: usize,
 
-    #[arg(short, long, default_value_t = 10_000)]
+    #[arg(short, long, default_value_t = 10_000_000)]
     pub samples: u64,
 
     #[arg(short, long, default_value_t = 3)]
@@ -81,7 +81,7 @@ fn monte_carlo_iteration(fast: bool, samples: u64, threads: usize) -> MonteCarlo
 
     let pi: FLOAT = (4.0 as FLOAT) * (in_circle as FLOAT) / ((threads as u64 * samples) as FLOAT);
     
-    MonteCarloResult { value: pi, error: std::f64::consts::PI - pi, time: instant.elapsed() }
+    MonteCarloResult { value: pi, error: pi - std::f64::consts::PI, time: instant.elapsed() }
 }
 
 fn main() {
